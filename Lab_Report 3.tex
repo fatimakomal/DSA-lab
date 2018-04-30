@@ -1,0 +1,138 @@
+\documentclass[11pt]{article}            % Report class in 11 points
+\parindent0pt  \parskip10pt             % make block paragraphs
+\usepackage{graphicx}
+\usepackage{listings}
+\graphicspath{ {images/} }
+\usepackage{graphicx} %  graphics header file
+\begin{document}
+\begin{titlepage}
+    \centering
+  \vfill
+    \includegraphics[width=8cm]{uni_logo.png} \\ 
+	\vskip2cm
+    {\bfseries\Large
+	Data Structuers and algorithms \\ (CS09203)\\
+	
+	\vskip2cm
+	Lab Report 
+	 
+	\vskip2cm
+	}    
+
+\begin{center}
+\begin{tabular}{ l l  } 
+
+Name: & Fatima komal \\ 
+Registration \#: & SEU-F16-143 \\ 
+Lab Report \#: & 01 \\ 
+ Dated:& 16-04-2018\\ 
+Submitted To:& Mr. Usman Ahmed\\ 
+
+ %\hline
+\end{tabular}
+\end{center}
+    \vfill
+    The University of Lahore, Islamabad Campus\\
+Department of Computer Science \& Information Technology
+\end{titlepage}
+
+
+    
+    {\bfseries\Large
+\centering
+	Experiment \# 3\\
+
+Stack wit h Array implementat ion  \\
+	
+	}    
+ \vskip1cm\ 
+ \textbf {Objective}\\The objective of this session is to understand the various oper ations on stack using arrays structure 
+in C++. 
+ 
+ \textbf {Software Tool} \\
+ 1.  Code Blocks with GCC compiler.    
+   
+
+\section{Theory }              
+
+Stacks are the most important in data structures. The notation of  a stack in computer science is the 
+same as the notion  of the  Stack to which you are accustomed in everyday  life. For  example, a 
+recursion program on which function call itself, but what happen when a function which is calling 
+itself call another function. Such as a function ‘A’ call function ‘B’ as a recursion. So, the firstly 
+function ‘B’ is call in ‘A’ and then function ‘A’ is work. So, this is a Stack. This is a Stack is First 
+in Last Out data structure. 
+ 
+Insertions in Stack: 
+In Stacks, we know the array work, sometimes we need to modif y it or add some element in it. For 
+that purpose, we use insertion scheme. By the use of this scheme we insert any element in Stacks 
+using array. In Stack, we maintain only one node which is called TOP. And Push terminology is 
+used as insertions.   
+ 
+Deletion in Stack: 
+In the deletion process, the element of the Stack is deleted on the same node which is called TOP. 
+In stacks, it’s just deleting the index of the TOP element which is added at last. In Stacks Pop 
+terminology is used as deletion.   
+ 
+Display of Stack: 
+In displaying section, the elements of Stacks ar e being display by using loops and variables as a 
+reverse order. Such that, last element is display at on first and first element enters display at on 
+last. 
+ 
+
+
+\section{Task}  
+\subsection{ Task 1 }     
+
+\begin{figure*}
+\centering
+  \includegraphics[width=12cm,height=6cm,keepaspectratio]{Picture4.png}
+\caption{stack}
+\label{Figure:3}    
+\end{figure*}
+1.  Insertion in stack  
+2.  Deletion in stack 
+3.  Display the stack 
+\subsection{Procedure: Task 1 }     
+
+\begin{lstlisting}
+#include<iostream>
+using namespace std;
+
+int main(){
+	int a=-1,y;
+	int array[100];
+	char op;
+	cout<<"To push enter p";
+	cout<<"\nTo delete enter d";
+	cout<<"\nTo display enter s";
+	cout<<"\nTo exit enter e\n";
+	line:
+	cin>>op;
+	switch (op){
+	
+	case 'p':
+		cout<<"enter no to push\n";
+		a++;
+		cin>>array[a];
+		cout<<"pushed at "<<a<<"\n";
+		break;
+	case 'd':
+		cout<<"dlting current\n";
+		a--;
+		break;
+	case 's':
+		for(int b=0;b<=a;b++){
+			cout<<array[b]<<endl;
+		}
+		break;
+		case 'e':
+			exit;
+}
+goto line;
+}
+
+
+\end{lstlisting}
+
+ 
+\end{document}                          % The required last line

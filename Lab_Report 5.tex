@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}            % Report class in 11 points
+\parindent0pt  \parskip10pt             % make block paragraphs
+\usepackage{graphicx}
+\usepackage{listings}
+\graphicspath{ {images/} }
+\usepackage{graphicx} %  graphics header file
+\begin{document}
+\begin{titlepage}
+    \centering
+  \vfill
+    \includegraphics[width=8cm]{uni_logo.png} \\ 
+	\vskip2cm
+    {\bfseries\Large
+	Data Structuers and algorithms \\ (CS09203)\\
+	
+	\vskip2cm
+	Lab Report 
+	 
+	\vskip2cm
+	}    
+
+\begin{center}
+\begin{tabular}{ l l  } 
+
+Name: & Fatima komal \\ 
+Registration \#: & SEU-F16-143 \\ 
+Lab Report \#: & 05 \\ 
+ Dated:& 16-04-2018\\ 
+Submitted To:& Mr. Usman Ahmed\\ 
+
+ %\hline
+\end{tabular}
+\end{center}
+    \vfill
+    The University of Lahore, Islamabad Campus\\
+Department of Computer Science \& Information Technology
+\end{titlepage}
+
+
+    
+    {\bfseries\Large
+\centering
+	Experiment \# 5 \\
+
+Link list -Basic Deletion at desired  Aposition l \\
+	
+	}    
+ \vskip1cm
+ \textbf {Objective}\\ The objective of this session is to insertion, traversal and deletion at desired position in link list 
+using C++. 
+ 
+ \textbf {Software Tool} \\
+ 1. Code Blocks with GCC compiler.
+
+\section{Theory }              
+
+This section discusses how to insert an item into, and delete an item from, a linked list. 
+Consider the following definition of a node. (For simplicity, we assume that the info type is int. 
+ 
+  struct nodeType 
+ {  
+int info nodeType* link; 
+  }; 
+
+
+\section{Task}  
+
+\subsection{ Task 1 }     
+\begin{figure*}
+\centering
+  \includegraphics[width=12cm,height=6cm,keepaspectratio]{6.png}
+\caption{output}
+\label{Figure:3}    
+\end{figure*}
+
+Write a C++ code using functions for the following operations. 
+ 
+1. 
+Creating a linked List. 
+2. 
+Traversing a Linked List. 
+3. 
+Inserting the node at the start of the list. 
+4. 
+Inserting a node after a given node. 
+5. 
+Inserting a node in a sorted list. 
+Create a complete menu for the above options and also create option for reusing 
+it. 
+ 
+
+\subsection{Procedure: Task 1 }    
+ 
+
+\begin{lstlisting}
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+struct Node{
+	int data;
+	struct Node*next;
+	
+};
+struct Node*head=NULL;
+void insert(int x){
+	struct Node*temp=(Node*)malloc(sizeof(struct Node));
+	temp->data=x;
+	temp->next=head;
+	head=temp;
+}
+
+void print()
+{
+	struct Node*temp=head;
+	cout<<"list is ";
+	while(temp!=NULL)
+	{
+		cout<<temp->data<<" ";
+		temp=temp->next;
+		
+	}
+	cout<<endl;
+}
+ void Delete(int n)
+{
+	struct Node*temp1=head;
+	if(n==1){
+		head=temp1->next;
+		free(temp1);
+		return;
+		
+	}
+	int i;
+	for(i=0;i<n-1;i++){
+		temp1=temp1->next;
+		struct Node*temp2=temp1->next;
+		temp1->next=temp2->next;
+		free(temp2);
+	}
+}
+int main(){
+	head=NULL;
+	cout<<"how many numbers"<<endl;
+	int n,i,x,y;
+	cin>>n;
+	for(i=0;i<n;i++){
+		cout<<"enter the number"<<endl;
+		cin>>x;
+		insert(x);
+		print();
+	
+	}
+	
+		cout<<"enter want you to delete"<<endl;
+		cin>>y;
+		Delete(y);
+		print();
+	
+}
+\end{lstlisting}
+
+
+ 
+\end{document}                          % The required last line
