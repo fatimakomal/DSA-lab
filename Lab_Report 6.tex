@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}            % Report class in 11 points
+\parindent0pt  \parskip10pt             % make block paragraphs
+\usepackage{graphicx}
+\usepackage{listings}
+\graphicspath{ {images/} }
+\usepackage{graphicx} %  graphics header file
+\begin{document}
+\begin{titlepage}
+    \centering
+  \vfill
+    \includegraphics[width=8cm]{uni_logo.png} \\ 
+	\vskip2cm
+    {\bfseries\Large
+	Data Structuers and algorithms \\ (CS09203)\\
+	
+	\vskip2cm
+	Lab Report 
+	 
+	\vskip2cm
+	}    
+
+\begin{center}
+\begin{tabular}{ l l  } 
+
+Name: & Fatima komal \\ 
+Registration \#: & SEU-F16-143 \\ 
+Lab Report \#: & 06 \\ 
+ Dated:& 16-04-2018\\ 
+Submitted To:& Mr. Usman Ahmed\\ 
+
+ %\hline
+\end{tabular}
+\end{center}
+    \vfill
+    The University of Lahore, Islamabad Campus\\
+Department of Computer Science \& Information Technology
+\end{titlepage}
+
+
+    
+    {\bfseries\Large
+\centering
+	Experiment \# 6 \\
+
+Doubly linked list implementationl \\
+	
+	}    
+ \vskip1cm
+ \textbf {Objective}\\ The objective of this session is to insertion, traversal at desired position indouble link list 
+using C++. 
+ 
+ \textbf {Software Tool} \\
+ 1. Code Blocks with GCC compiler.
+
+\section{Theory }              
+
+This section discusses how to insert an item into, and desplay an item in, a double linked list. 
+A doubly-linked list is a linked data structure that consists of a set of sequentially linked records called nodes. Each node contains two fields, called links, that are references to the previous and to the next node in the sequence of nodes. The beginning and ending nodes previous and next links, respectively, point to some kind of terminator, typically a sentinel node or null, to facilitate traversal of the list. If there is only one sentinel node, then the list is circularly linked via the sentinel node. It can be conceptualized as two singly linked lists formed from the same data items, but in opposite sequential orders.
+
+The two node links allow traversal of the list in either direction. While adding or removing a node in a doubly-linked list requires changing more links than the same operations on a singly linked list, the operations are simpler and potentially more efficient, because there is no need to keep track of the previous node during traversal or no need to traverse the list to find the previous node, so that its link can be modified.
+
+\section{Task}  
+
+\subsection{ Task 1 }     
+
+
+Write a C++ code using functions for the following operations. 
+ 
+1. 
+Creating a double linked List. 
+2. 
+Inserting data at head of the list. 
+3. 
+Traversing a double Linked List. 
+ 
+
+\subsection{Procedure: Task 1 }    
+ 
+
+\begin{lstlisting}
+
+#include<stdlib.h>
+#include<iostream>
+using namespace std;
+
+struct Node  {
+	int data;
+	struct Node* next;
+	struct Node* prev;
+};
+
+struct Node* head; 
+struct Node* GetNewNode(int x) {
+	struct Node* newNode
+		= (struct Node*)malloc(sizeof(struct Node));
+	newNode->data = x;
+	newNode->prev = NULL;
+	newNode->next = NULL;
+	return newNode;
+}
+
+void Head(int x) {
+	struct Node* newNode = GetNewNode(x);
+	if(head == NULL) {
+		head = newNode;
+		return;
+	}
+	head->prev = newNode;
+	newNode->next = head; 
+	head = newNode;
+}
+
+
+
+void Print() {
+	struct Node* temp = head;
+	cout<<"display : ";
+	while(temp != NULL) {
+		cout<<temp->data;
+		temp = temp->next;
+	}
+	cout<<"\n";
+}
+
+
+int main() {
+	head = NULL; 
+	cout<<"how many numbers"<<endl;
+	int n,i,x,y;
+	cin>>n;
+	for(i=0;i<n;i++){
+		cout<<"enter nubmer at head "<<endl;
+		cin>>x;
+	    Head(x); Print();
+
+ }
+}
+}
+\end{lstlisting}
+
+
+
+\begin{figure*}
+\centering
+  \includegraphics[width=12cm,height=6cm,keepaspectratio]{7.png}
+\caption{output}
+\label{Figure:3}    
+\end{figure*}
+
+ 
+\end{document}                          % The required last line
